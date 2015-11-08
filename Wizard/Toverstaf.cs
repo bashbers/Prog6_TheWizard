@@ -24,22 +24,22 @@ namespace Wizard
             _hoeveelheidEnergie = 100;
         }
 
-        public void links()
+        public void Links()
         {
             _hoeveelheidEnergie--;
         }
 
-        public void rechts()
+        public void Rechts()
         {
             _hoeveelheidEnergie--;
         }
 
-        public void omhoog()
+        public void Omhoog()
         {
             _hoeveelheidEnergie--;
         }
 
-        public void omlaag()
+        public void Omlaag()
         {
             _hoeveelheidEnergie--;
         }

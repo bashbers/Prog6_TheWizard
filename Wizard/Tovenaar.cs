@@ -55,8 +55,8 @@ namespace Wizard
                     //Ban Da Ladik
                     if (words[0] == "Ban" && words[0] == "da" && words[0] == "ladik"){
                         if (ing.Contains("Kikkerbil") && ing.Contains("oorlel") &&ing.Contains("rattenstaart") && ing.Contains("slangegif")){
-                            _staf.omhoog();
-                            _staf.omlaag();
+                            _staf.Omhoog();
+                            _staf.Omlaag();
                             return "best friends for life";
                         }
                         else { throw new VerkeerdeIngredientenException(); }
@@ -68,8 +68,8 @@ namespace Wizard
                     {
                         if (ing.Contains("Kikkerbil") && ing.Contains("oorlel") && ing.Contains("rattenstaart") && ing.Contains("krokodillenoog"))
                         {
-                            _staf.links();
-                            _staf.rechts();
+                            _staf.Links();
+                            _staf.Rechts();
                             return "Er was licht, en hij zag dat het goed was!";
                         }
                         else { throw new VerkeerdeIngredientenException(); }
@@ -83,10 +83,10 @@ namespace Wizard
                     {
                         if (ing.Contains("Kikkerbil") && ing.Contains("spinneweb") && ing.Contains("mensenhaar") && ing.Contains("krokodillenoog"))
                         {
-                            _staf.links();
-                            _staf.omhoog();
-                            _staf.rechts();
-                            _staf.omlaag();
+                            _staf.Links();
+                            _staf.Omhoog();
+                            _staf.Rechts();
+                            _staf.Omlaag();
                             return "Je bent genezen met " + _staf.HoeveelheidEnergie + " energie punten!";
                         }
                         else { throw new VerkeerdeIngredientenException(); }
@@ -130,6 +130,13 @@ namespace Wizard
 
          
             return "Toverspreuk mislukt";
+        }
+
+        public String Spreuk()
+        {
+            _staf.Links();
+            _staf.Rechts();
+            return "Abracadabra";
         }
     }
 }
