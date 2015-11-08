@@ -45,7 +45,7 @@
     <Compile Include="Toverstaf.cs" />
     <Compile Include="VerkeerdeIngredientenException.cs" />
     <Compile Include="VerkeerdeWoordenException.cs" />
-    <Compile Include="Wizard.cs" />
+    <Compile Include="Tovenaar.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
