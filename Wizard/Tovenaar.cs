@@ -28,32 +28,24 @@ namespace Wizard
 
         public String Toverspreuk(List<String> ing, List<String> words)
         {
-            Boolean ingredientenGoed = false;
-            Boolean spreukGoed = false;
-
             if (ing == null || ing.Count == 0)
             {
                 throw new GeenIngredientenException();
             }
-            else if (words.Count == 3)
+            else
             {
-                //Fora mis Forameur
-                if(words[0] == "Fora" && words[1] == "mis" && words[2] == "Forameur"){
-                    if(ing.Count == 3 && ing.Contains("spinneweb") && ing.Contains("oorlel") && ing.Contains("slangegif"))
-                    {
-                        return "doe open die poort";
-                    }
-                    else{throw new VerkeerdeIngredientenException();}
-                }
-                else{throw new VerkeerdeWoordenException();}
 
-             
-            }
-            else if (ing.Count == 4){
-                if (words.Count == 3){
-
-                    //Ban Da Ladik
-                    if (words[0] == "Ban" && words[0] == "da" && words[0] == "ladik"){
+                if (words.Count == 3)
+                {
+                    //Fora mis Forameur
+                    if(words[0] == "Fora" && words[1] == "mis" && words[2] == "Forameur"){
+                        if(ing.Count == 3 && ing.Contains("spinneweb") && ing.Contains("oorlel") && ing.Contains("slangegif"))
+                        {
+                            return "doe open die poort";
+                        }
+                        else{throw new VerkeerdeIngredientenException();}
+                    }  //Ban Da Ladik
+                    else if (words[0] == "Ban" && words[1] == "da" && words[2] == "ladik"){
                         if (ing.Contains("Kikkerbil") && ing.Contains("oorlel") &&ing.Contains("rattenstaart") && ing.Contains("slangegif")){
                             _staf.Omhoog();
                             _staf.Omlaag();
@@ -61,10 +53,7 @@ namespace Wizard
                         }
                         else { throw new VerkeerdeIngredientenException(); }
                     }
-                    else { throw new VerkeerdeWoordenException(); }
-
-                    //Flim Flam Fluister
-                    if (words[0] == "Flim" && words[0] == "Flam" && words[0] == "Fluister")
+                    else if (words[0] == "Flim" && words[1] == "Flam" && words[2] == "Fluister")
                     {
                         if (ing.Contains("Kikkerbil") && ing.Contains("oorlel") && ing.Contains("rattenstaart") && ing.Contains("krokodillenoog"))
                         {
@@ -74,38 +63,10 @@ namespace Wizard
                         }
                         else { throw new VerkeerdeIngredientenException(); }
                     }
-                    else { throw new VerkeerdeWoordenException(); }
-                }
-                else if (words.Count == 4)
-                {
-                    //Bal Sam Sala Bond
-                    if (words[0] == "Bal" && words[0] == "sam" && words[0] == "sala" && words[0] == "bond")
-                    {
-                        if (ing.Contains("Kikkerbil") && ing.Contains("spinneweb") && ing.Contains("mensenhaar") && ing.Contains("krokodillenoog"))
-                        {
-                            _staf.Links();
-                            _staf.Omhoog();
-                            _staf.Rechts();
-                            _staf.Omlaag();
-                            return "Je bent genezen met " + _staf.HoeveelheidEnergie + " energie punten!";
-                        }
-                        else { throw new VerkeerdeIngredientenException(); }
-                    }
-                    else { throw new VerkeerdeWoordenException(); }
-                }
-                else
-                {
-                    throw new GeenToverspreukException("Er is geen toverspreuk met 4 ingredienten, met deze spreuk");
-                }
-
-            }
-            else if (ing.Count == 7){
-                if (words.Count == 3)
-                {
-                    if (words[0] == "-" && words[0] == "kro" && words[0] == "dilt")
+                    else if (words[0] == "Arma" && words[1] == "kro" && words[2] == "dilt")
                     {
                         if (ing.Contains("Kikkerbil") && ing.Contains("spinneweb") && ing.Contains("oorlel") &&
-                            ing.Contains("rattenstaart") && ing.Contains("slangegif") && ing.Contains("mensenhaar") && ing.Contains("krokodillenoog")) 
+                            ing.Contains("rattenstaart") && ing.Contains("slangegif") && ing.Contains("mensenhaar") && ing.Contains("krokodillenoog"))
                         {
                             if (_kookpot.Kleur == "zilver")
                             {
@@ -119,17 +80,30 @@ namespace Wizard
                         }
                         else { throw new VerkeerdeIngredientenException(); }
                     }
+                    else { 
+                        throw new VerkeerdeWoordenException(); 
+                    }
+                }
+                else if (words.Count == 4)
+                {
+                    //Bal Sam Sala Bond
+                    if (words[0] == "Bal" && words[1] == "sam" && words[2] == "sala" && words[3] == "bond")
+                    {
+                        if (ing.Contains("Kikkerbil") && ing.Contains("spinneweb") && ing.Contains("mensenhaar") && ing.Contains("krokodillenoog"))
+                        {
+                            _staf.Links();
+                            _staf.Omhoog();
+                            _staf.Rechts();
+                            _staf.Omlaag();
+                            return "Je bent genezen met " + _staf.HoeveelheidEnergie + " energiepunten";
+                        }
+                        else { throw new VerkeerdeIngredientenException(); }
+                    }
                     else { throw new VerkeerdeWoordenException(); }
                 }
-                else
-                {
-                    throw new GeenToverspreukException("Er is geen toverspreuk met 7 ingredienten, met deze spreuk");
-                }
-              
-            }
 
-         
-            return "Toverspreuk mislukt";
+                throw new GeenToverspreukException("Er is geen toverspreuk met " + words.Count + " woorden");
+            }
         }
 
         public String Spreuk()
