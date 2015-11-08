@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Wizard
 {
-    public class Toverstaf
+    public class Toverstaf : IToverstaf
     {
         private int _hoeveelheidEnergie;
 

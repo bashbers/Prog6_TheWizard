@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="GeenIngredientenException.cs" />
     <Compile Include="GeenToverspreukException.cs" />
+    <Compile Include="IToverstaf.cs" />
     <Compile Include="Kookpot.cs" />
     <Compile Include="Toverstaf.cs" />
     <Compile Include="VerkeerdeIngredientenException.cs" />

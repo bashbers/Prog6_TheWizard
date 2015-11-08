@@ -10,7 +10,7 @@ namespace Wizard
     {
         private Kookpot _kookpot { get; set; }
 
-        private Toverstaf _staf { get; set; }
+        private IToverstaf _staf { get; set; }
 
         public Tovenaar()
         {
@@ -19,7 +19,7 @@ namespace Wizard
 
         }
 
-        public Tovenaar(Toverstaf pStaf )
+        public Tovenaar(IToverstaf pStaf)
         {
             this._kookpot = new Kookpot("zwart");
             this._staf = pStaf;
