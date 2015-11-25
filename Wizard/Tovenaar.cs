@@ -12,12 +12,6 @@ namespace Wizard
 
         private IToverstaf _staf { get; set; }
 
-        public Tovenaar()
-        {
-            this._kookpot = new Kookpot("zwart");
-            this._staf = new Toverstaf();
-
-        }
 
         public Tovenaar(IToverstaf pStaf)
         {
@@ -26,6 +20,7 @@ namespace Wizard
 
         }
 
+    
         public String Toverspreuk(List<String> ing, List<String> words)
         {
             if (ing == null || ing.Count == 0)
@@ -104,13 +99,6 @@ namespace Wizard
 
                 throw new GeenToverspreukException("Er is geen toverspreuk met " + words.Count + " woorden");
             }
-        }
-
-        public String Spreuk()
-        {
-            _staf.Links();
-            _staf.Rechts();
-            return "Abracadabra";
         }
     }
 }
